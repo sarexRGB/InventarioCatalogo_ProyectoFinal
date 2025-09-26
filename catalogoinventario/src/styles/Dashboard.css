@@ -1,0 +1,241 @@
+.dashboard {
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  color: #252525;
+}
+
+.dashboardHeader {
+  margin-bottom: 24px;
+}
+
+.dashboardHeader h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.dashboardHeader .subtitulo {
+  font-size: 14px;
+  color: #717182;
+  margin: 0;
+}
+
+.metricasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dashboardCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #333333;
+}
+
+.cardIcon {
+  color: #666666;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardValue {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.cardVariation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.variationPsitive {
+  color: #22c55e;
+}
+
+.variationNegative {
+  color: #ef4444;
+}
+
+.contentArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.graficoCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.graficoCard h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.horizontalBars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barLabelWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 140px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.barLabel {
+  font-size: 14px;
+  color: #333333;
+}
+
+.barBackground {
+  background-color: #e9ebef;
+  border-radius: 8px;
+  width: 100%;
+  height: 12px;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.5s ease-in-out;
+}
+
+.barValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  width: 30px;
+  text-align: right;
+}
+
+.alquileresCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.alquileresCard h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.alquileresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alquilerItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+.alquilerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alquilerEquipo {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 0;
+}
+
+.alquilerEmpresa,
+.alquilerChofer {
+  font-size: 13px;
+  color: #666666;
+  margin: 0;
+}
+
+.alquilerMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  text-align: right;
+}
+
+.alquilerEstado {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.estado-entregado {
+  background-color: #e6f9ed;
+  color: #22c55e;
+}
+
+.estado-pendiente {
+  background-color: #fff9e6;
+  color: #f59e0b;
+}
+
+.estado-transito {
+  background-color: #e6f1f9;
+  color: #3b82f6;
+}
+
+.alquiler-fecha,
+.alquiler-id {
+  font-size: 12px;
+  color: #999999;
+  margin: 0;
+}

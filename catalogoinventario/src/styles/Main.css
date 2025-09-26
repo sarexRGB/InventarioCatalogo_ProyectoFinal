@@ -1,0 +1,98 @@
+.main{
+    padding: 20px;
+}
+
+.heroSection {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.heroTitle {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.highlightText {
+  color: #ff8c00;
+}
+
+.heroSubtitle {
+  font-size: 1.1em;
+  color: #666666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.5;
+}
+
+.sectionContainer {
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333333;
+}
+
+.sectionSubtitle {
+  font-size: 1em;
+  color: #666666;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.iconCircle {
+  width: 60px;
+  height: 60px;
+  background-color: #ff8c00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+}
+
+.iconCircle.small {
+  width: 50px;
+  height: 50px;
+}
+
+.bigIcon, .smalIcon {
+    color: #e0e0e0;
+}
+
+.cardTitle {
+  font-size: 1.2em;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cardText {
+  font-size: 0.9em;
+  color: #666666;
+  line-height: 1.4;
+}

@@ -1,0 +1,41 @@
+.catalogPage {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headerVenta,
+.headerAlquiler {
+
+    margin-bottom: 20px;
+}
+
+.headerVenta h1,
+.headerAlquiler h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.headerVenta p,
+.headerAlquiler p {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0;
+}
+
+.productGrid,
+.inventoryListGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .productGrid,
+    .inventoryListGrid {
+        grid-template-columns: 1fr;
+    }
+}

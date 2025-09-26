@@ -1,0 +1,29 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Sara",
+      "password": "Admin123"
+    }
+  ],
+  "inventario": [],
+  "choferes": [
+    {
+      "id": "CH-1758811501308",
+      "nombre": "Axel Madrigal Rivera",
+      "email": "axl.mad@hotmmail.com",
+      "telefono": "+506 8332 6222",
+      "licencia": {
+        "numero": "123456789",
+        "tipo": "B1"
+      },
+      "vehiculo": "Camión JAC 1032",
+      "placa": "JAC-103",
+      "estado": "Disponible",
+      "experiencia": "8 años",
+      "ubicacion": "Bodega Principal",
+      "notas": "Cuenta con conocimientos de mecánica básica."
+    }
+  ],
+  "contratos": []
+}
