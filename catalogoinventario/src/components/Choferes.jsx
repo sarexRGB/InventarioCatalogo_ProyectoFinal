@@ -11,7 +11,7 @@ function Choferes() {
     useEffect(() => {
         const fetchChoferes = async () => {
             try {
-                const data = await CrudChoferes.getChofer();
+                const data = await CrudChoferes.getChoferes();
                 setChoferes(data);
             } catch (error) {
                 Swal.fire('Error', 'No se pudo cargar la lista de choferes.', 'error');

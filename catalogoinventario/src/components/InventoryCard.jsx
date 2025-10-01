@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MoreHorizontal, Edit, Trash2 } from 'lucide-react';
 import '../styles/InventoryCard.css';
 
-function InventoryCard({ item, onEdit, onDelete, showImage }) {
+function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick }) {
     const [openMenu, setOpenMenu] = useState(false);
     const showAdminActions = onEdit && onDelete;
 
@@ -31,19 +31,19 @@ function InventoryCard({ item, onEdit, onDelete, showImage }) {
 
     const getTarifa = () => {
         if (item.paraVenta && item.precioVenta) {
-            return `$${item.precioVenta.toLocaleString('es-CO')}`;
+            return `₡${item.precioVenta.toLocaleString('es-CO')}`;
         }
         if (item.paraAlquiler && item.preciosAlquiler) {
-            return `$${item.preciosAlquiler.diario.toLocaleString('es-CO')} /día`;
+            return `₡${item.preciosAlquiler.diario.toLocaleString('es-CO')} /día`;
         }
         return "N/A";
     };
 
     return (
         <div className="inventoryCard">
-            {showImage && item.imagen && (
-                <div className="card-image-container">
-                    <img src={item.imagen} alt={item.nombre} className="card-image" />
+            {item.imagen && showImage && (
+                <div className="cardImageContainer" onClick={() => onImageClick(item.imagen)}>
+                    <img src={item.imagen} alt={item.nombre} className="cardImage" />
                 </div>
             )}
             <div className="cardHeader">
@@ -71,8 +71,8 @@ function InventoryCard({ item, onEdit, onDelete, showImage }) {
             </div>
             <div className="card-info">
                 <div className="infoGroup">
-                    <p className="infoLabel">ID:</p>
-                    <p className="infoValue">{item.id}</p>
+                    <p className="infoLabel">Código:</p>
+                    <p className="infoValue">{item.codigo}</p>
                 </div>
                 <div className="infoGroup">
                     <p className="infoLabel">Categoría:</p>
@@ -82,7 +82,7 @@ function InventoryCard({ item, onEdit, onDelete, showImage }) {
                     <p className="infoLabel">Ubicación:</p>
                     <p className="infoValue">{item.ubicacion}</p>
                 </div>
-                
+
                 {item.paraVenta && (
                     <>
                         <div className="infoGroup">
@@ -117,11 +117,11 @@ function InventoryCard({ item, onEdit, onDelete, showImage }) {
                     <>
                         <div className="infoGroup">
                             <p className="infoLabel">Precio:</p>
-                            <p className="infoValue">${item.precioVenta.toLocaleString('es-CO')}</p>
+                            <p className="infoValue">₡{item.precioVenta.toLocaleString('es-CO')}</p>
                         </div>
                         <div className="infoGroup">
                             <p className="infoLabel">Tarifa Diaria:</p>
-                            <p className="infoValue">${item.preciosAlquiler.diario.toLocaleString('es-CO')}</p>
+                            <p className="infoValue">₡{item.preciosAlquiler.diario.toLocaleString('es-CO')}</p>
                         </div>
                     </>
                 )}

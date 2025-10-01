@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "../styles/Footer.css"
 import mixer from '../img/mixer.png'
 import { Phone, MapPin } from 'lucide-react';
@@ -11,7 +12,7 @@ function Footer() {
                     <div className="footerSection footerAbout">
                         <div className="footerLogo">
                             <div className="logoCircle">
-                                <img src={mixer} alt="Central de Herramientas Logo" className="footerLogo" />
+                                <img src={mixer} alt="Central de Herramientas Logo" className="footerLogoImg" />
                             </div>
                             <h3 className="footerTitle">Central de Herramientas</h3>
                         </div>
@@ -21,7 +22,7 @@ function Footer() {
                     </div>
 
                     <div className="footerSection footerContact">
-                        <h3 className="sectionTitle">Contacto</h3>
+                        <h3 className="footTitle">Contacto</h3>
                         <div className="contactItem">
                             <Phone size={16} />
                             <p>+506 8888 8888</p>
@@ -33,13 +34,16 @@ function Footer() {
                     </div>
 
                     <div className="footerSection footerHours">
-                        <h3 className="sectionTitle">Horarios</h3>
+                        <h3 className="footTitle">Horarios</h3>
                         <p>Lunes a Sábado: 7:30AM - 4:30PM</p>
                         <p>Domingos: Cerrado</p>
                     </div>
                 </div>
 
                 <div className="footerBottom">
+                    <div className="abouUs">
+                        <Link to="/AcercaDeNosotros" className='aboutUsLink'><h3>Acerca de nosotros</h3></Link>
+                    </div>
                     <hr />
                     <p className="footerCopyright">© 2024 Central de Herramientas. Todos los derechos reservados.</p>
                 </div>

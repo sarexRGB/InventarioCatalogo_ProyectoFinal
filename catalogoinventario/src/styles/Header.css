@@ -1,12 +1,11 @@
 .header {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 15px 30px;
-    background-color: #ffffff;
+    padding: 15px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     font-family: Arial, sans-serif;
-    flex-wrap: wrap;
 }
 
 .headerLogo {
@@ -40,7 +39,7 @@
 .headerNav {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
 .navDiv {
@@ -50,7 +49,7 @@
 .navLink {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     padding: 10px 15px;
     text-decoration: none;
     color: #666666;
@@ -64,6 +63,11 @@
 
 .navLink.active {
     background-color: #1a1a2e;
+    color: #ffffff;
+}
+
+.navLink.active:hover {
+    background-color: #2e2e42;
     color: #ffffff;
 }
 
@@ -82,26 +86,8 @@
     margin: 0;
 }
 
-.adminBtn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #333333;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    background-color: #ffffff;
-    transition: box-shadow 0.3s;
-}
-
-.adminBtn:hover {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
 @media (max-width: 1024px) {
-    .headerContainer {
-        flex-direction: column;
+    .header {
         align-items: flex-start;
         gap: 15px;
     }

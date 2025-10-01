@@ -1,53 +1,53 @@
-async function getChoferes() {
+async function getContratos() {
     try {
-        const response = await fetch(`http://localhost:3001/choferes`);
+        const response = await fetch(`http://localhost:3001/contratos`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return await response.json();
     } catch (error) {
-        console.error("Error al obtener los choferes:", error);
+        console.error("Error al obtener el contrato:", error);
         throw error;
     }
 };
 
-async function postChofer(newChofer) {
+async function postContrato(newContrato) {
     try {
-        const response = await fetch(`http://localhost:3001/choferes`, {
+        const response = await fetch(`http://localhost:3001/contratos`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newChofer)
+            body: JSON.stringify(newContrato)
         });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return await response.json();
     } catch (error) {
-        console.error("Error al agregar el chofer:", error);
+        console.error("Error al agregar el contrato:", error);
         throw error;
     }
 };
 
-async function putChofer(id, updateChofer) {
+async function putContrato(id, updateContrato) {
     try {
-        const response = await fetch(`http://localhost:3001/choferes/${id}`, {
+        const response = await fetch(`http://localhost:3001/contatos/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updateChofer)
+            body: JSON.stringify(updateContrato)
         });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return await response.json();
     } catch (error) {
-        console.error("Error al actualizar el chofer", error);
+        console.error("Error al actualizar el contrato", error);
         throw error;
     }
 };
 
-async function deleteChofer(id) {
+async function deleteContrato(id) {
     try {
-        const response = await fetch(`http://localhost:3001/choferes/${id}`, {
+        const response = await fetch(`http://localhost:3001/contratos/${id}`, {
             method: 'DELETE',
         });
         if (!response.ok) {
@@ -55,9 +55,9 @@ async function deleteChofer(id) {
         }
         return true;
     } catch (error) {
-        console.error("Error al eliminar el chofer", error);
+        console.error("Error al eliminar el contrato", error);
         throw error;
     }
 };
 
-export default { getChoferes, postChofer, putChofer, deleteChofer }
+export default { getContratos, postContrato, putContrato, deleteContrato }

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import CrudInventario from '../services/CrudInventario';
 import InventoryCard from './InventoryCard';
+import ImagenModal from './ImagenModal';
 import '../styles/CatalogoPublic.css'
 
 function CatalogoAlquiler() {
   const [alquilerItems, setAlquilerItems] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [selectedImage, setSelectedImage] = useState(null)
+  
   useEffect(() => {
     const fetchAlquilerItems = async () => {
       try {
@@ -21,6 +23,14 @@ function CatalogoAlquiler() {
     };
     fetchAlquilerItems();
   }, []);
+
+  const handleImageClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const handleCloseImageModal = () => {
+    setSelectedImage(null);
+  };
 
   if (loading) {
     return <div>Cargando catálogo de alquiler...</div>;
@@ -50,11 +60,13 @@ function CatalogoAlquiler() {
             <InventoryCard
             key={item.id}
             item={item}
-             showImage={true}
+            showImage={true}
+            onImageClick={handleImageClick}
             />
           ))}
         </div>
       </div>
+      <ImagenModal imageUrl={selectedImage} onClose={handleCloseImageModal} />
     </div>
   )
 }

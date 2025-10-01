@@ -1,12 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import { Plus, Search, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Plus, Search } from 'lucide-react';
 import '../styles/Inventario.css';
 import InventoryCard from './InventoryCard';
 import CrudInventario from '../services/CrudInventario';
 
+
 function Inventario() {
   const [inventario, setInventario] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  const categorias = [
+    "Maquinaria Pesada",
+    "Equipos de Compactación y Movimiento de Tierra",
+    "Equipos de Elevación y Andamiaje",
+    "Generación de Energía y Equipos Eléctricos",
+    "Herramientas Eléctricas y de Demolición",
+    "Equipos de Concreto",
+    "Bombas y Manejo de Agua",
+    "Herramientas Manuales",
+    "Seguridad y Accesorios de Obra"
+  ];
 
   useEffect(() => {
     const fetchInventario = async () => {
@@ -73,105 +87,119 @@ function Inventario() {
     Swal.fire({
       title: isEditing ? 'Editar Ítem' : 'Agregar Ítem',
       html: `
-        <div class="swal-form-container">
-          <div class="swal-grid">
-            <div class="swal-input-group">
-              <label for="swal-nombre">Nombre *</label>
-              <input id="swal-nombre" class="swal2-input" placeholder="Ej: Excavadora CAT 320" value="${isEditing ? itemToEdit.nombre : ''}">
-            </div>
-            <div class="swal-input-group">
-              <label for="swal-categoria">Categoría *</label>
-              <input id="swal-categoria" class="swal2-input" placeholder="Ej: Maquinaria Pesada" value="${isEditing ? itemToEdit.categoria : ''}">
-            </div>
-          </div>
-          <div class="swal-input-group full-width">
-            <label for="swal-descripcion">Descripción</label>
-            <textarea id="swal-descripcion" class="swal2-textarea" placeholder="Descripción del ítem">${isEditing ? itemToEdit.descripcion : ''}</textarea>
-          </div>
-          <div class="swal-input-group full-width">
-            <label for="swal-especificaciones">Especificaciones</label>
-            <input id="swal-especificaciones" class="swal2-input" placeholder="Separar con comas" value="${isEditing ? (itemToEdit.especificaciones || []).join(', ') : ''}">
-          </div>
-          <div class="swal-grid">
-            <div class="swal-input-group">
-              <label for="swal-condicion">Condición</label>
-              <select id="swal-condicion" class="swal2-select">
-                <option value="Nuevo">Nuevo</option>
-                <option value="Excelente">Excelente</option>
-                <option value="Reacondicionado">Reacondicionado</option>
-                <option value="Bueno">Bueno</option>
-                <option value="Regular">Regular</option>
-              </select>
-            </div>
-            <div class="swal-input-group">
-              <label for="swal-ubicacion">Ubicación</label>
-              <input id="swal-ubicacion" class="swal2-input" placeholder="Ej: Bodega A" value="${isEditing ? itemToEdit.ubicacion : ''}">
-            </div>
-          </div>
-          <div class="swal-input-group full-width">
-            <label for="swal-imagen">URL de Imagen</label>
-            <input id="swal-imagen" class="swal2-input" placeholder="https://..." value="${isEditing ? itemToEdit.imagen : ''}">
-          </div>
-          
-          <hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;">
-        
-          <div class="swal-input-group full-width" style="display: flex; justify-content: space-around; gap: 10px;">
-            <div class="checkbox-container">
-              <input type="checkbox" id="swal-paraAlquiler" ${isEditing && itemToEdit.paraAlquiler ? 'checked' : ''}>
-              <label for="swal-paraAlquiler">Para Alquiler</label>
-            </div>
-            <div class="checkbox-container">
-              <input type="checkbox" id="swal-paraVenta" ${isEditing && itemToEdit.paraVenta ? 'checked' : ''}>
-              <label for="swal-paraVenta">Para Venta</label>
-            </div>
-          </div>
-        
-          <div id="alquiler-fields" class="full-width" style="display: none;">
-            <div class="swal-grid">
-              <div class="swal-input-group">
-                <label for="swal-tarifa-diaria">Tarifa Diaria *</label>
-                <input id="swal-tarifa-diaria" class="swal2-input" type="number" placeholder="0" value="${isEditing && itemToEdit.preciosAlquiler ? itemToEdit.preciosAlquiler.diario : ''}">
-              </div>
-              <div class="swal-input-group">
-                <label for="swal-estado-alquiler">Estado</label>
-                <select id="swal-estado-alquiler" class="swal2-select">
-                  <option value="Disponible">Disponible</option>
-                  <option value="Alquilado">Alquilado</option>
-                  <option value="En Reparación">En Reparación</option>
-                  <option value="Fuera de Servicio">Fuera de Servicio</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        
-          <div id="venta-fields" class="full-width" style="display: none;">
-            <div class="swal-grid">
-              <div class="swal-input-group">
-                <label for="swal-precio-venta">Precio *</label>
-                <input id="swal-precio-venta" class="swal2-input" type="number" placeholder="0" value="${isEditing && itemToEdit.precioVenta ? itemToEdit.precioVenta : ''}">
-              </div>
-              <div class="swal-input-group">
-                <label for="swal-stock">Stock</label>
-                <input id="swal-stock" class="swal2-input" type="number" placeholder="0" value="${isEditing && itemToEdit.stockVenta ? itemToEdit.stockVenta : ''}">
-              </div>
-            </div>
-            <div class="swal-grid">
-              <div class="swal-input-group">
-                <label for="swal-precio-original">Precio Original</label>
-                <input id="swal-precio-original" class="swal2-input" type="number" placeholder="Si está en oferta" value="${isEditing && itemToEdit.precioOriginalVenta ? itemToEdit.precioOriginalVenta : ''}">
-              </div>
-              <div class="swal-input-group checkbox-container">
-                <input type="checkbox" id="swal-en-oferta" ${isEditing && itemToEdit.enOferta ? 'checked' : ''}>
-                <label for="swal-en-oferta">En Oferta</label>
-              </div>
-            </div>
-            <div class="swal-input-group full-width">
-              <label for="swal-garantia">Garantía</label>
-              <input id="swal-garantia" class="swal2-input" placeholder="Ej: 1 año" value="${isEditing ? itemToEdit.garantia : ''}">
-            </div>
-          </div>
-        </div>
-      `,
+                <div class="swal-form-container">
+                    <div class="swal-grid">
+                        <div class="swal-input-group">
+                            <label for="swal-codigo">Código *</label>
+                            <input id="swal-codigo" class="swal2-input" placeholder="Ej: EQ-001" value="${isEditing ? itemToEdit.codigo : ''}">
+                        </div>
+                        <div class="swal-input-group">
+                            <label for="swal-nombre">Nombre *</label>
+                            <input id="swal-nombre" class="swal2-input" placeholder="Ej: Excavadora CAT 320" value="${isEditing ? itemToEdit.nombre : ''}">
+                        </div>
+                    </div> 
+                    
+                    <div class="swal-input-group full-width">
+                        <label for="swal-categoria">Categoría *</label>
+                        <select id="swal-categoria" class="swal2-select">
+                            <option value="">Seleccione una categoría</option>
+                            ${categorias.map(cat => `
+                                <option value="${cat}" ${isEditing && itemToEdit.categoria === cat ? 'selected' : ''}>
+                                    ${cat}
+                                </option>
+                            `).join('')}
+                        </select>
+                    </div>
+
+                    <div class="swal-input-group full-width">
+                        <label for="swal-descripcion">Descripción</label>
+                        <textarea id="swal-descripcion" class="swal2-textarea" placeholder="Descripción del ítem">${isEditing ? itemToEdit.descripcion : ''}</textarea>
+                    </div>
+                    <div class="swal-input-group full-width">
+                        <label for="swal-especificaciones">Especificaciones</label>
+                        <input id="swal-especificaciones" class="swal2-input" placeholder="Separar con comas" value="${isEditing ? (itemToEdit.especificaciones || []).join(', ') : ''}">
+                    </div>
+                    
+                    <div class="swal-grid">
+                        <div class="swal-input-group">
+                            <label for="swal-condicion">Condición</label>
+                            <select id="swal-condicion" class="swal2-select">
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Excelente">Excelente</option>
+                                <option value="Reacondicionado">Reacondicionado</option>
+                                <option value="Bueno">Bueno</option>
+                                <option value="Regular">Regular</option>
+                            </select>
+                        </div>
+                        <div class="swal-input-group">
+                            <label for="swal-ubicacion">Ubicación</label>
+                            <input id="swal-ubicacion" class="swal2-input" placeholder="Ej: Bodega A" value="${isEditing ? itemToEdit.ubicacion : ''}">
+                        </div>
+                    </div>
+                    <div class="swal-input-group full-width">
+                        <label for="swal-imagen">URL de Imagen</label>
+                        <input id="swal-imagen" class="swal2-input" placeholder="https://..." value="${isEditing ? itemToEdit.imagen : ''}">
+                    </div>
+                    
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;">
+                    
+                    <div class="swal-input-group full-width" style="display: flex; justify-content: space-around; gap: 10px;">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="swal-paraAlquiler" ${isEditing && itemToEdit.paraAlquiler ? 'checked' : ''}>
+                            <label for="swal-paraAlquiler">Para Alquiler</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="swal-paraVenta" ${isEditing && itemToEdit.paraVenta ? 'checked' : ''}>
+                            <label for="swal-paraVenta">Para Venta</label>
+                        </div>
+                    </div>
+                    
+                    <div id="alquiler-fields" class="full-width" style="display: none;">
+                        <div class="swal-grid">
+                            <div class="swal-input-group">
+                                <label for="swal-tarifa-diaria">Tarifa Diaria *</label>
+                                <input id="swal-tarifa-diaria" class="swal2-input" type="number" placeholder="0" value="${isEditing && itemToEdit.preciosAlquiler ? itemToEdit.preciosAlquiler.diario : ''}">
+                            </div>
+                            <div class="swal-input-group">
+                                <label for="swal-estado-alquiler">Estado</label>
+                                <select id="swal-estado-alquiler" class="swal2-select">
+                                    <option value="Disponible">Disponible</option>
+                                    <option value="Alquilado">Alquilado</option>
+                                    <option value="En Reparación">En Reparación</option>
+                                    <option value="Fuera de Servicio">Fuera de Servicio</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="venta-fields" class="full-width" style="display: none;">
+                        <div class="swal-grid">
+                            <div class="swal-input-group">
+                                <label for="swal-precio-venta">Precio *</label>
+                                <input id="swal-precio-venta" class="swal2-input" type="number" placeholder="0" value="${isEditing && itemToEdit.precioVenta ? itemToEdit.precioVenta : ''}">
+                            </div>
+                            <div class="swal-input-group">
+                                <label for="swal-stock">Stock</label>
+                                <input id="swal-stock" class="swal2-input" type="number" placeholder="0" value="${isEditing && itemToEdit.stockVenta ? itemToEdit.stockVenta : ''}">
+                            </div>
+                        </div>
+                        <div class="swal-grid">
+                            <div class="swal-input-group">
+                                <label for="swal-precio-original">Precio Original</label>
+                                <input id="swal-precio-original" class="swal2-input" type="number" placeholder="Si está en oferta" value="${isEditing && itemToEdit.precioOriginalVenta ? itemToEdit.precioOriginalVenta : ''}">
+                            </div>
+                            <div class="swal-input-group checkbox-container">
+                                <input type="checkbox" id="swal-en-oferta" ${isEditing && itemToEdit.enOferta ? 'checked' : ''}>
+                                <label for="swal-en-oferta">En Oferta</label>
+                            </div>
+                        </div>
+                        <div class="swal-input-group full-width">
+                            <label for="swal-garantia">Garantía</label>
+                            <input id="swal-garantia" class="swal2-input" placeholder="Ej: 1 año" value="${isEditing ? itemToEdit.garantia : ''}">
+                        </div>
+                    </div>
+                </div>
+            `,
       showCancelButton: true,
       confirmButtonText: isEditing ? 'Guardar Cambios' : 'Agregar',
       cancelButtonText: 'Cancelar',
@@ -179,11 +207,12 @@ function Inventario() {
       didOpen: (popup) => {
         if (isEditing) {
           popup.querySelector('#swal-condicion').value = itemToEdit.condicion || '';
+          popup.querySelector('#swal-categoria').value = itemToEdit.categoria || '';
           if (itemToEdit.paraAlquiler) {
             popup.querySelector('#swal-estado-alquiler').value = itemToEdit.estadoAlquiler || '';
           }
         }
-        
+
         const paraAlquilerCheckbox = popup.querySelector('#swal-paraAlquiler');
         const paraVentaCheckbox = popup.querySelector('#swal-paraVenta');
         const alquilerFields = popup.querySelector('#alquiler-fields');
@@ -201,6 +230,7 @@ function Inventario() {
         });
       },
       preConfirm: () => {
+        const codigo = Swal.getPopup().querySelector('#swal-codigo').value;
         const nombre = Swal.getPopup().querySelector('#swal-nombre').value;
         const categoria = Swal.getPopup().querySelector('#swal-categoria').value;
         const descripcion = Swal.getPopup().querySelector('#swal-descripcion').value;
@@ -211,8 +241,8 @@ function Inventario() {
         const paraAlquiler = Swal.getPopup().querySelector('#swal-paraAlquiler').checked;
         const paraVenta = Swal.getPopup().querySelector('#swal-paraVenta').checked;
 
-        if (!nombre || !categoria || (!paraAlquiler && !paraVenta)) {
-          Swal.showValidationMessage('Nombre, Categoría y al menos un tipo son obligatorios.');
+        if (!codigo || !nombre || !categoria || (!paraAlquiler && !paraVenta)) {
+          Swal.showValidationMessage('Código, Nombre, Categoría y al menos un tipo son obligatorios.');
           return false;
         }
 
@@ -225,6 +255,7 @@ function Inventario() {
         const garantia = paraVenta ? Swal.getPopup().querySelector('#swal-garantia').value : null;
 
         const item = {
+          codigo,
           nombre,
           categoria,
           descripcion,
@@ -270,10 +301,17 @@ function Inventario() {
     });
   };
 
+  const handleImageClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const handleCloseImageModal = () => {
+    setSelectedImage(null);
+  };
 
   if (loading) {
     return <div>Cargando inventario...</div>;
-  }
+  };
 
   return (
     <div>
@@ -290,14 +328,6 @@ function Inventario() {
             <Search className="searchIcon" size={18} />
             <input type="text" placeholder='Buscar equipos...' />
           </div>
-          <div className="inventoryFilterDropdowns">
-            <button className="inventoryFilterBtn">
-              Todos los Estados <ChevronDown size={16} />
-            </button>
-            <button className="inventoryFilterBtn">
-              Todas las Categorías <ChevronDown size={16} />
-            </button>
-          </div>
         </div>
 
         <div className="inventoryListGrid">
@@ -307,12 +337,15 @@ function Inventario() {
               item={item}
               onEdit={() => showInventarioModal(item)}
               onDelete={() => deleteItem(item.id)}
+              onImageClick={handleImageClick}
+              showImage={false}
             />
           ))}
         </div>
       </div>
+      <ImageModal imageUrl={selectedImage} onClose={handleCloseImageModal} />
     </div>
   )
 }
 
-export default Inventario
+export default Inventario;

@@ -6,7 +6,262 @@
       "password": "Admin123"
     }
   ],
-  "inventario": [],
+  "inventario": [
+    {
+      "codigo": "EQ-00001",
+      "nombre": "Compactador de Bota de gasolina Total Tools TP880-2",
+      "categoria": "Herramientas Eléctricas y de Demolición",
+      "descripcion": "Sapo compactador de bota",
+      "condicion": "Excelente",
+      "ubicacion": "Bodega Principal",
+      "especificaciones": [
+        "Capacidad de combustible: 3.1 litros",
+        "Consumo específico de combustible: 1.4 l/h a 3",
+        "600 rpm",
+        "Capacidad de aceite: 0.6 litros",
+        "Filtro de aire: espuma"
+      ],
+      "imagen": "https://www.totalbusiness.com/userfiles/1/images/photo/20200730/TP880-2.JPG",
+      "paraAlquiler": true,
+      "paraVenta": false,
+      "preciosAlquiler": {
+        "diario": 35000,
+        "semanal": 210000,
+        "mensual": 770000
+      },
+      "estadoAlquiler": "Disponible",
+      "precioVenta": null,
+      "stockVenta": null,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": null,
+      "id": "5c99"
+    },
+    {
+      "codigo": "EQ-00002",
+      "nombre": "Rodillo compactador BW 75 H",
+      "categoria": "Maquinaria Pesada",
+      "descripcion": "Este rodillo compactador es especial para las obras de movimiento de tierra y asfaltado. Con un ancho de tambor de 750 mm y la potencia de compactación máxima de todos los rodillos de lanza, esta máquina alcanza siempre el mayor rendimiento.",
+      "condicion": "Nuevo",
+      "ubicacion": "Bodega Principal",
+      "especificaciones": [
+        "Motor: Diesel Yanmar tipo L 100",
+        "Potencia: 8",
+        "3 HP (6",
+        "2 kW)",
+        "Velocidad motor: 3.100 rpm",
+        "Fuerza centrífuga: 20/20 kN (4.000 kg)",
+        "Máxima pendiente de trabajo: 40 – 35 %",
+        "Frecuencia: 55 Hz",
+        "Velocidad de marcha avance: 0 – 5",
+        "0 km/h",
+        "Velocidad de marchas retroceso: 0 – 2",
+        "5 km/h",
+        "Carga lineal estática:6",
+        "9 kg/cm",
+        "Amplitud de vibración: 0",
+        "50 mm",
+        "Frenos de servicio: Mecánico",
+        "Ancho tambor: 750 mm",
+        "Refrigeración motor: Por aire",
+        "Dimensiones (la x an x al): 2.910 x 750 x 1.159 mm",
+        "Peso:1.040 kg"
+      ],
+      "imagen": "https://emaresa.cl/wp-content/uploads/2018/02/BW_75-H_1200.jpg",
+      "paraAlquiler": true,
+      "paraVenta": true,
+      "preciosAlquiler": {
+        "diario": 100000,
+        "semanal": 600000,
+        "mensual": 2200000
+      },
+      "estadoAlquiler": "Disponible",
+      "precioVenta": 3750000,
+      "stockVenta": 1,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": "",
+      "id": "3fcf"
+    },
+    {
+      "nombre": "Batidora 2 sacos motor eléctrico 220V",
+      "categoria": "Equipos de Concreto",
+      "descripcion": "Batidora de 2 sacos con motor eléctrico de 220V, diseñada para mezclas de concreto y mortero en proyectos de construcción medianos y grandes. Ofrece alta capacidad, eficiencia en el mezclado y operación confiable con energía eléctrica.",
+      "condicion": "Nuevo",
+      "ubicacion": "Bodega Principal",
+      "especificaciones": [
+        "Capacidad de mezclado: 16 pies cúbicos (2 sacos) / 12 pies cúbicos (1 1/2 sacos)",
+        "Motor: Eléctrico",
+        "Combustible: 220V",
+        "Ancho aprox.: 1.35 mts",
+        "Alto aprox.: 2.00 mts",
+        "Largo aprox.: 2.15 mts"
+      ],
+      "imagen": "https://opracr.com/wp-content/uploads/2022/02/batidora.png",
+      "paraAlquiler": true,
+      "paraVenta": false,
+      "preciosAlquiler": {
+        "diario": 18000,
+        "semanal": 108000,
+        "mensual": 396000
+      },
+      "estadoAlquiler": "Disponible",
+      "precioVenta": null,
+      "stockVenta": null,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": null,
+      "id": "6313"
+    },
+    {
+      "id": "df4b",
+      "codigo": "EQ-00004",
+      "nombre": "Bomba sumergible para aguas turbias",
+      "categoria": "Bombas y Manejo de Agua",
+      "descripcion": "“Bomba sumergible Karcher de 0,4 hp y 110V, diseñada para extraer aguas turbias de forma rápida y confiable, ideal para drenajes, pozos y obras de construcción.",
+      "condicion": "Nuevo",
+      "ubicacion": "Bodega Principal",
+      "especificaciones": [
+        "Potencia 0.4 hp",
+        "voltaje 110 V",
+        "caudal máximo 116 litros/min",
+        "tipo sumergible para aguas turbias",
+        "marca Karcher",
+        "modelo SP 3",
+        "aplicación en drenaje de pozos",
+        "extracción de agua en construcción y limpieza de áreas inundadas"
+      ],
+      "imagen": "https://cr.epaenlinea.com/media/catalog/product/1/0/100018095.jpg_20250711215609020698.jpeg?optimize=medium&bg-color=255,255,255&fit=bounds&height=300&width=300&canvas=300:300",
+      "paraAlquiler": true,
+      "paraVenta": false,
+      "preciosAlquiler": {
+        "diario": 30000,
+        "semanal": 180000,
+        "mensual": 660000
+      },
+      "estadoAlquiler": "Disponible",
+      "precioVenta": null,
+      "stockVenta": null,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": null
+    },
+    {
+      "id": "72fb",
+      "codigo": "EQ-00005",
+      "nombre": "Allanadora de concreto de 36\" con motor de 6.5 HP",
+      "categoria": "Equipos de Concreto",
+      "descripcion": "Allanadora de concreto de 36\" con motor de 6.5 HP, ideal para nivelar y alisar superficies de concreto en obras medianas y grandes de manera eficiente y rápida.",
+      "condicion": "Nuevo",
+      "ubicacion": "",
+      "especificaciones": [
+        "Motor Honda GX160 de 6.5 HP",
+        "ancho de trabajo 36 pulgadas",
+        "tipo de equipo: allanadora de concreto",
+        "peso aproximado 167 kg",
+        "adecuada para nivelar y alisar concreto en obras de construcción"
+      ],
+      "imagen": "https://www.reecosa.com/files/products/images/detail/422974842_4361.jpg",
+      "paraAlquiler": true,
+      "paraVenta": false,
+      "preciosAlquiler": {
+        "diario": 220000,
+        "semanal": 1320000,
+        "mensual": 4840000
+      },
+      "estadoAlquiler": "Disponible",
+      "precioVenta": null,
+      "stockVenta": null,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": null
+    },
+    {
+      "id": "70c9",
+      "codigo": "EQ-00006",
+      "nombre": "Cuerpo de andamio de 1.50",
+      "categoria": "Equipos de Elevación y Andamiaje",
+      "descripcion": "Cuerpo de andamio de 1.50 metros de ancho y 2.00 metros de alto, ideal para trabajos en altura en proyectos de construcción",
+      "condicion": "Nuevo",
+      "ubicacion": "",
+      "especificaciones": [
+        "Incluye 2 marcos",
+        "2 crucetas y 1 plataforma; disponible en colores azul y rojo; opciones de alquiler por 3",
+        "7",
+        "14 o 30 días; posibilidad de añadir bases",
+        "garras y ruedas."
+      ],
+      "imagen": "https://cdnx.jumpseller.com/casticar/image/51097924/resize/1000/1000?1721933730",
+      "paraAlquiler": true,
+      "paraVenta": false,
+      "preciosAlquiler": {
+        "diario": 3000,
+        "semanal": 18000,
+        "mensual": 66000
+      },
+      "estadoAlquiler": "Disponible",
+      "precioVenta": null,
+      "stockVenta": null,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": null
+    },
+    {
+      "nombre": "Hidrolavadora motor de gasolina G 3200 Karcher",
+      "categoria": "Bombas y Manejo de Agua",
+      "descripcion": "“Hidrolavadora portátil con motor de gasolina Karcher KXS® de 196 cc, 3200 PSI de presión máxima y caudal de 9 l/min, ideal para limpieza de vehículos, fachadas, terrazas y maquinaria.",
+      "condicion": "Nuevo",
+      "ubicacion": "",
+      "especificaciones": [
+        "Motor de 4 tiempos",
+        "combustible gasolina sin plomo",
+        "presión máxima 3200 PSI",
+        "caudal máximo 9 l/min",
+        "peso 29.2 kg",
+        "incluye pistola con seguro",
+        "manguera de alta presión",
+        "boquillas Quick Connect",
+        "depósito de detergente",
+        "neumáticos todo terreno y adaptador de grifo con filtro de agua"
+      ],
+      "imagen": "https://cr.epaenlinea.com/media/catalog/product/1/0/100018026.jpg_20250715032025805928.jpeg?optimize=medium&bg-color=255,255,255&fit=bounds&height=300&width=300&canvas=300:300",
+      "paraAlquiler": true,
+      "paraVenta": true,
+      "preciosAlquiler": {
+        "diario": 28000,
+        "semanal": 168000,
+        "mensual": 616000
+      },
+      "estadoAlquiler": "Alquilado",
+      "precioVenta": 415000,
+      "stockVenta": 6,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": "",
+      "id": "5b2e"
+    },
+    {
+      "nombre": "Taladro Percutor Inalámbrico Stanley 1/2",
+      "categoria": "Herramientas Eléctricas y de Demolición",
+      "descripcion": "Taladro percutor inalámbrico Stanley de 1/2\" y 20V, diseñado para perforar y atornillar con facilidad en materiales como madera, metal y mampostería. Cuenta con 22 posiciones de torque, luz LED para iluminar el área de trabajo y dos baterías de 1.5 Ah para mayor autonomía.",
+      "condicion": "Nuevo",
+      "ubicacion": "",
+      "especificaciones": [
+        "Mandril sin llave de 1/2"
+      ],
+      "imagen": "https://cr.epaenlinea.com/media/catalog/product/1/0/100010129_20250607202748478948.jpeg?optimize=medium&bg-color=255,255,255&fit=bounds&height=300&width=300&canvas=300:300",
+      "paraAlquiler": false,
+      "paraVenta": true,
+      "preciosAlquiler": null,
+      "estadoAlquiler": null,
+      "precioVenta": 110000,
+      "stockVenta": 1,
+      "enOferta": false,
+      "precioOriginalVenta": null,
+      "garantia": "",
+      "id": "11b4"
+    }
+  ],
   "choferes": [
     {
       "id": "CH-1758811501308",
@@ -15,7 +270,7 @@
       "telefono": "+506 8332 6222",
       "licencia": {
         "numero": "123456789",
-        "tipo": "B1"
+        "tipo": "B2"
       },
       "vehiculo": "Camión JAC 1032",
       "placa": "JAC-103",

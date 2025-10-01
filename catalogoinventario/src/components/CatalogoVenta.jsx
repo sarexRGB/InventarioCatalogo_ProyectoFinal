@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import CrudInventario from '../services/CrudInventario';
 import InventoryCard from './InventoryCard';
+import ImagenModal from './ImagenModal';
 import '../styles/CatalogoPublic.css'
 
 function CatalogoVenta() {
   const [ventaItems, setVentaItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null)
 
   useEffect(() => {
     const fetchVentaItems = async () => {
@@ -21,6 +23,14 @@ function CatalogoVenta() {
     };
     fetchVentaItems();
   }, []);
+
+  const handleImageClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const handleCloseImageModal = () => {
+    setSelectedImage(null);
+  };
 
   if (loading) {
     return <div>Cargando catálogo de venta...</div>;
@@ -54,10 +64,12 @@ function CatalogoVenta() {
             key={item.id}
             item={item}
             showImage={true}
+            onImageClick={handleImageClick}
             />
           ))}
         </div>
       </div>
+      <ImagenModal imageUrl={selectedImage} onClose={handleCloseImageModal} />
     </div>
   )
 }

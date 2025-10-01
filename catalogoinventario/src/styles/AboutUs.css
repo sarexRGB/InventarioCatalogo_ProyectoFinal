@@ -1,0 +1,111 @@
+.aboutContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.aboutHeader {
+    text-align: center;
+    padding: 40px 0 60px;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.aboutMission {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+.separador {
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 40px 0;
+}
+
+.aboutValues {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 60px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.aboutValues h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #1a1a2e;
+}
+
+.misionImg img {
+    height: 200px;
+    
+}
+
+.valueGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.valueItem {
+    flex: 1 1 280px; 
+    max-width: 300px;
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.valueItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.valueIcon {
+    color: #ff9900;
+    margin-bottom: 15px;
+}
+
+.valueItem h3 {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    color: #1a1a2e;
+}
+
+.valueItem p {
+    font-size: 0.95em;
+    color: #666;
+}
+
+@media (max-width: 850px) {
+    .aboutMission {
+        flex-direction: column;
+        text-align: center;
+    }
+    .missionImg {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    .valueGrid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .valueItem {
+        flex: 1 1 100%;
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    .aboutHeader h1 {
+        font-size: 2em;
+    }
+}

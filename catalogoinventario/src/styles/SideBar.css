@@ -18,14 +18,12 @@
 
 .sideBar.collapsed {
     width: 60px;
-    align-items: center;
 }
 
 .sidebarTop {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: center;
     
 }
 
@@ -33,9 +31,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 20px 15px;
     border-bottom: 1px solid #e9e9e9;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .logoSection {
@@ -86,7 +85,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 20px 0;
+    padding: 20px 10px;
 }
 
 .navBtn {
@@ -103,6 +102,7 @@
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .navBtn:hover {
@@ -118,12 +118,18 @@
     color: #ffffff;
 }
 
+.navBtn.active:hover {
+    background-color: #2e2e42;
+    color: #ffffff;
+}
+
 .navIcon {
     color: #666666;
     transition: color 0.3s;
+    min-width: 20px;
 }
 
-.navBtn:hover .navIcon {
+.navBtn:hover {
     color: #1a1a2e;
 }
 
@@ -142,12 +148,12 @@
 }
 
 .sidebar.collapsed .navMenu {
-    padding: 20px o;
+    padding: 20px 5px;
 }
 
 .sidebar.collapsed .navBtn {
     justify-content: center;
-    padding: 12px o;
+    padding: 12px 5px;
     width: 100%;
 }
 
@@ -155,9 +161,18 @@
     display: none;
 }
 
+.sideBar.collapsed .navBtn .navIcon {
+    margin-right: 0;
+}
+
+.sidebar.collapsed .navBtn.active {
+    padding: 12px 5px; 
+}
+
 .sidebarBottom {
-    padding: 20px 0;
+    padding: 20px 10px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .logoutBtn {
@@ -175,6 +190,7 @@
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.3s;
+    box-sizing: border-box;
 }
 
 .logoutBtn:hover {
@@ -182,6 +198,7 @@
 }
 
 .logoutIcon {
+    color: inherit;
     color: #d4183d;
 }
 
@@ -197,4 +214,8 @@
 
 .sidebar.collapsed .logoutBtn span {
     display: none;
+}
+
+.sidebar.collapsed .logoutBtn .logoutIcon {
+    margin-right: 0;
 }

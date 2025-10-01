@@ -13,6 +13,7 @@ import AdminContratos from '../pages/AdminContratos';
 import AdminCatalogoAlquiler from '../pages/AdminCatalogoAlquiler';
 import AdminCatalogoVenta from '../pages/AdminCatalogoVenta';
 import PrivateRoute from './PrivateRoute';
+import AcercaDe from '../pages/AcercaDe';
 
 function Routing() {
   return (
@@ -23,6 +24,7 @@ function Routing() {
             <Route index element={<Lobby />} />
             <Route path='/CatalogoAlquiler' element={<AlquilerPublic />} />
             <Route path='/CatalogoVenta' element={<VentaPublic />} />
+            <Route path='/AcercaDeNosotros' element={<AcercaDe />}  />
           </Route>
           <Route path='/login' element={<AdminLogin />} />
 
