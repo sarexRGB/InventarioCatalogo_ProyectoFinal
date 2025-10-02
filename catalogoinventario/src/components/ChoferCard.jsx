@@ -76,7 +76,6 @@ function ChoferCard({ chofer, onEdit, onDelete }) {
                                 <button onClick={() => { onEdit(); setOpenMenu(false); }} className="menuItem">
                                     <Edit size={16} /> Editar
                                 </button>
-                                <a href="#" className="menuItem">Ver Perfil</a>
                                 <button onClick={() => { onDelete(); setOpenMenu(false); }} className="menuItem delete-item">
                                     <Trash2 size={16} /> Eliminar
                                 </button>

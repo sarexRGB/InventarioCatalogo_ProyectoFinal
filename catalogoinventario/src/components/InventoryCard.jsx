@@ -31,11 +31,11 @@ function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick,
     };
 
     const getAlquilerPrice = () => {
-        return item.preciosAlquiler?.diario ? `₡${item.preciosAlquiler.diario.toLocaleString('es-CO')}` : 'N/A';
+        return item.preciosAlquiler?.diario ? `₡${item.preciosAlquiler.diario.toLocaleString('es-CR')}` : 'N/A';
     };
 
     const getVentaPrice = () => {
-        return item.precioVenta ? `₡${item.precioVenta.toLocaleString('es-CO')}` : 'N/A';
+        return item.precioVenta ? `₡${item.precioVenta.toLocaleString('es-CR')}` : 'N/A';
     };
 
     const handleImageClick = () => {

@@ -19,6 +19,11 @@ function SideBar({ isExpanded, toggleSidebar }) {
         navegar(path)
     }
 
+    const cerrarSession = () => {
+        localStorage.clear
+        navegar('/login')
+    }
+
     return (
         <div>
             <div className={`sideBar ${isExpanded ? "expanded" : "collapsed"}`}>
@@ -90,7 +95,7 @@ function SideBar({ isExpanded, toggleSidebar }) {
                 </div>
 
                 <div className="sidebarBottom">
-                    <button className="logoutBtn" onClick={() => navegar('/')}>
+                    <button className="logoutBtn" onClick={cerrarSession}>
                         <LogOut size={20} className="logoutIcon" />
                         {isExpanded && <span>Cerrar Sesión</span>}
                     </button>

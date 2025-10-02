@@ -556,13 +556,7 @@ function Contratos() {
                             <Plus size={18} /> Nuevo Contrato
                         </button>
                     </div>
-                    <div className="contratosActions">
-                        <div className="searchBar">
-                            <Search className="searchIcon" size={18} />
-                            <input type="text" placeholder='Buscar contratos, clientes o equipos...' />
-                        </div>
-                        <button className="filterBtn">Todos los Estados <ChevronDown size={16} /></button>
-                    </div>
+                    
                     <div className="contratosList">
                         {contratos.length === 0 ? (
                             <p className="no-items-message">No hay contratos registrados. ¡Crea el primero!</p>
