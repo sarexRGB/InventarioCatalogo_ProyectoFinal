@@ -8,7 +8,6 @@
   ],
   "inventario": [
     {
-      "codigo": "EQ-00001",
       "nombre": "Compactador de Bota de gasolina Total Tools TP880-2",
       "categoria": "Herramientas Eléctricas y de Demolición",
       "descripcion": "Sapo compactador de bota",
@@ -29,7 +28,7 @@
         "semanal": 210000,
         "mensual": 770000
       },
-      "estadoAlquiler": "Disponible",
+      "estadoAlquiler": "Alquilado",
       "precioVenta": null,
       "stockVenta": null,
       "enOferta": false,
@@ -105,7 +104,7 @@
         "semanal": 108000,
         "mensual": 396000
       },
-      "estadoAlquiler": "Disponible",
+      "estadoAlquiler": "Alquilado",
       "precioVenta": null,
       "stockVenta": null,
       "enOferta": false,
@@ -147,13 +146,12 @@
       "garantia": null
     },
     {
-      "id": "72fb",
       "codigo": "EQ-00005",
-      "nombre": "Allanadora de concreto de 36\" con motor de 6.5 HP",
+      "nombre": "Allanadora de concreto de 36",
       "categoria": "Equipos de Concreto",
       "descripcion": "Allanadora de concreto de 36\" con motor de 6.5 HP, ideal para nivelar y alisar superficies de concreto en obras medianas y grandes de manera eficiente y rápida.",
       "condicion": "Nuevo",
-      "ubicacion": "",
+      "ubicacion": "Bodega Principal",
       "especificaciones": [
         "Motor Honda GX160 de 6.5 HP",
         "ancho de trabajo 36 pulgadas",
@@ -169,12 +167,13 @@
         "semanal": 1320000,
         "mensual": 4840000
       },
-      "estadoAlquiler": "Disponible",
+      "estadoAlquiler": "Alquilado",
       "precioVenta": null,
       "stockVenta": null,
       "enOferta": false,
       "precioOriginalVenta": null,
-      "garantia": null
+      "garantia": null,
+      "id": "72fb"
     },
     {
       "id": "70c9",
@@ -232,7 +231,7 @@
         "semanal": 168000,
         "mensual": 616000
       },
-      "estadoAlquiler": "Alquilado",
+      "estadoAlquiler": "Disponible",
       "precioVenta": 415000,
       "stockVenta": 6,
       "enOferta": false,
@@ -280,5 +279,32 @@
       "notas": "Cuenta con conocimientos de mecánica básica."
     }
   ],
-  "contratos": []
+  "contratos": [
+    {
+      "estado": "Cerrado",
+      "id": "300e"
+    },
+    {
+      "estado": "Activo",
+      "id": "0f67"
+    },
+    {
+      "id": "a0af",
+      "tipo": "Alquiler",
+      "tipoCliente": "Empresa",
+      "empresa": "Alunasa",
+      "contacto": "Sonia Álvarez Guerrero",
+      "periodoInicio": "2025-10-02",
+      "periodoFin": "2025-10-04",
+      "metodoEntrega": "Cliente Retira",
+      "chofer": null,
+      "direccionEntrega": null,
+      "valorDiario": 220000,
+      "valorTotal": 660000,
+      "equipos": [
+        "Allanadora de concreto de 36"
+      ],
+      "estado": "Pendiente Entrega"
+    }
+  ]
 }

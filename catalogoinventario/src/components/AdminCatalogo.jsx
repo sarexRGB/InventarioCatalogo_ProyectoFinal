@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import InventoryCard from '../components/InventoryCard';
 import CrudInventario from '../services/CrudInventario';
+import ImagenModal from './ImagenModal';
 import '../styles/Inventario.css'
 
 function AdminCatalogo({ tipo }) {
     const [inventario, setInventario] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     useEffect(() => {
         const fetchInventario = async () => {
@@ -25,6 +27,14 @@ function AdminCatalogo({ tipo }) {
         };
         fetchInventario();
     }, [tipo]);
+
+    const handleImageClick = (imageUrl) => {
+      setSelectedImage(imageUrl);
+    };
+
+   const handleCloseImageModal = () => {
+      setSelectedImage(null);
+    }; 
 
     const updateItem = async (id, updatedItem) => {
         try {
@@ -256,6 +266,9 @@ function AdminCatalogo({ tipo }) {
                         onEdit={() => showInventarioModal(item)}
                         onDelete={() => deleteItem(item.id)}
                         showImage={true}
+                        onImageClick={handleImageClick}
+                        showStock={true}
+                        viewType={tipo === 'alquiler' ? 'Alquiler' : 'Venta'}
                     />
                 ))}
             </div>

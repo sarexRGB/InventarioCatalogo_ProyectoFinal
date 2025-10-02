@@ -339,11 +339,12 @@ function Inventario() {
               onDelete={() => deleteItem(item.id)}
               onImageClick={handleImageClick}
               showImage={false}
+              showStock={true}
             />
           ))}
         </div>
       </div>
-      <ImageModal imageUrl={selectedImage} onClose={handleCloseImageModal} />
+      
     </div>
   )
 }

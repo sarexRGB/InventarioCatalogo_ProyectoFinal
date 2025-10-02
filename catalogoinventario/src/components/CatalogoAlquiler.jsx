@@ -62,6 +62,7 @@ function CatalogoAlquiler() {
             item={item}
             showImage={true}
             onImageClick={handleImageClick}
+            viewType="Alquiler"
             />
           ))}
         </div>

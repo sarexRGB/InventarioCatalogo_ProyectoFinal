@@ -30,7 +30,7 @@ async function postContrato(newContrato) {
 
 async function putContrato(id, updateContrato) {
     try {
-        const response = await fetch(`http://localhost:3001/contatos/${id}`, {
+        const response = await fetch(`http://localhost:3001/contratos/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updateContrato)

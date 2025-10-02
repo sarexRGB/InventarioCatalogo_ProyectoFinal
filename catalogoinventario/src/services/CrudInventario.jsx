@@ -45,6 +45,22 @@ async function putInventario(id, updatedItem) {
     }
 };
 
+async function putEquipoEstado(id, updateData) {
+    try {
+        const response = await fetch(`http://localhost:3001/inventario/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updateData)
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.error("Error al actualizar el estado del equipo:", error);
+        throw error;
+    }
+}
+
 async function deleteInventario(id) {
     try {
         const response = await fetch(`http://localhost:3001/inventario/${id}`, {
@@ -60,4 +76,4 @@ async function deleteInventario(id) {
     }
 };
 
-export default { getInventario, postInventario, putInventario, deleteInventario }
+export default { getInventario, postInventario, putInventario, putEquipoEstado, deleteInventario }

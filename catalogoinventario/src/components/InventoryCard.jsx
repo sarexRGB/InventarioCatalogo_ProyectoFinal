@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { MoreHorizontal, Edit, Trash2 } from 'lucide-react';
+import { MoreHorizontal, Edit, Trash2, Package } from 'lucide-react'; 
 import '../styles/InventoryCard.css';
 
-function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick }) {
+function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick, showStock = false, viewType }) {
     const [openMenu, setOpenMenu] = useState(false);
     const showAdminActions = onEdit && onDelete;
+    const formatPrice = (price) => price ? `₡${price.toLocaleString('es-CR')}` : 'Consultar';
 
     const getEstadoClass = () => {
         if (item.paraAlquiler) {
@@ -20,36 +21,55 @@ function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick 
     };
 
     const getEstadoInfo = () => {
-        if (item.paraVenta && !item.paraAlquiler) {
-            return `Stock: ${item.stockVenta}`;
-        }
         if (item.paraAlquiler) {
             return item.estadoAlquiler;
+        }
+        if (item.paraVenta && !item.paraAlquiler) {
+            return "Venta"; 
         }
         return "No definido";
     };
 
-    const getTarifa = () => {
-        if (item.paraVenta && item.precioVenta) {
-            return `₡${item.precioVenta.toLocaleString('es-CO')}`;
+    const getAlquilerPrice = () => {
+        return item.preciosAlquiler?.diario ? `₡${item.preciosAlquiler.diario.toLocaleString('es-CO')}` : 'N/A';
+    };
+
+    const getVentaPrice = () => {
+        return item.precioVenta ? `₡${item.precioVenta.toLocaleString('es-CO')}` : 'N/A';
+    };
+
+    const handleImageClick = () => {
+        if (item.imagen && onImageClick) {
+            onImageClick(item.imagen);
         }
-        if (item.paraAlquiler && item.preciosAlquiler) {
-            return `₡${item.preciosAlquiler.diario.toLocaleString('es-CO')} /día`;
-        }
-        return "N/A";
     };
 
     return (
         <div className="inventoryCard">
             {item.imagen && showImage && (
-                <div className="cardImageContainer" onClick={() => onImageClick(item.imagen)}>
+                <div className="cardImageContainer" onClick={handleImageClick}>
                     <img src={item.imagen} alt={item.nombre} className="cardImage" />
                 </div>
             )}
             <div className="cardHeader">
                 <div className="headerLeft">
                     <h3 className="equipoNombre">{item.nombre}</h3>
-                    <span className={`estadoTag ${getEstadoClass()}`}>{getEstadoInfo()}</span>
+                    
+                    {showStock && (
+                        <>
+                            {item.paraVenta && (
+                                <span className={`estadoTag ${item.stockVenta > 0 ? 'estado-disponible' : 'estado-fuera-servicio'}`}>
+                                    Stock Venta: {item.stockVenta}
+                                </span>
+                            )}
+                            {item.paraAlquiler && (
+                                <span className={`estadoTag ${getEstadoClass()}`}>
+                                    {getEstadoInfo()}
+                                </span>
+                            )}
+                        </>
+                    )}
+                    
                 </div>
                 {showAdminActions && (
                     <div className="cardMenu">
@@ -70,28 +90,29 @@ function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick 
                 )}
             </div>
             <div className="card-info">
-                <div className="infoGroup">
-                    <p className="infoLabel">Código:</p>
-                    <p className="infoValue">{item.codigo}</p>
-                </div>
+                {showStock && (
+                    <>
+                        <div className="infoGroup">
+                            <p className="infoLabel">Código:</p>
+                            <p className="infoValue">{item.codigo}</p>
+                        </div>
+                        <div className="infoGroup">
+                            <p className="infoLabel">Ubicación:</p>
+                            <p className="infoValue">{item.ubicacion}</p>
+                        </div>
+                    </>
+                )}
+                
                 <div className="infoGroup">
                     <p className="infoLabel">Categoría:</p>
                     <p className="infoValue">{item.categoria}</p>
                 </div>
-                <div className="infoGroup">
-                    <p className="infoLabel">Ubicación:</p>
-                    <p className="infoValue">{item.ubicacion}</p>
-                </div>
-
-                {item.paraVenta && (
+                
+                {item.paraVenta && viewType === 'Venta' && (
                     <>
                         <div className="infoGroup">
-                            <p className="infoLabel">Tarifa/Precio:</p>
-                            <p className="infoValue">{getTarifa()}</p>
-                        </div>
-                        <div className="infoGroup">
-                            <p className="infoLabel">Stock:</p>
-                            <p className="infoValue">{item.stockVenta}</p>
+                            <p className="infoLabel">Precio Venta:</p>
+                            <p className="infoValue">{getVentaPrice()}</p>
                         </div>
                         <div className="infoGroup">
                             <p className="infoLabel">Garantía:</p>
@@ -100,11 +121,11 @@ function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick 
                     </>
                 )}
 
-                {item.paraAlquiler && !item.paraVenta && (
+                {item.paraAlquiler && viewType === 'Alquiler' && (
                     <>
                         <div className="infoGroup">
-                            <p className="infoLabel">Tarifa/Precio:</p>
-                            <p className="infoValue">{getTarifa()}</p>
+                            <p className="infoLabel">Tarifa Diaria:</p>
+                            <p className="infoValue">{getAlquilerPrice()}</p>
                         </div>
                         <div className="infoGroup">
                             <p className="infoLabel">Condición:</p>
@@ -112,17 +133,21 @@ function InventoryCard({ item, onEdit, onDelete, showImage = true, onImageClick 
                         </div>
                     </>
                 )}
-
-                {item.paraAlquiler && item.paraVenta && (
+                
+                {showStock && !viewType && (
                     <>
-                        <div className="infoGroup">
-                            <p className="infoLabel">Precio:</p>
-                            <p className="infoValue">₡{item.precioVenta.toLocaleString('es-CO')}</p>
-                        </div>
-                        <div className="infoGroup">
-                            <p className="infoLabel">Tarifa Diaria:</p>
-                            <p className="infoValue">₡{item.preciosAlquiler.diario.toLocaleString('es-CO')}</p>
-                        </div>
+                         {item.paraVenta && (
+                            <div className="infoGroup">
+                                <p className="infoLabel">Precio Venta:</p>
+                                <p className="infoValue">{getVentaPrice()}</p>
+                            </div>
+                        )}
+                        {item.paraAlquiler && (
+                            <div className="infoGroup">
+                                <p className="infoLabel">Tarifa Diaria:</p>
+                                <p className="infoValue">{getAlquilerPrice()}</p>
+                            </div>
+                        )}
                     </>
                 )}
             </div>

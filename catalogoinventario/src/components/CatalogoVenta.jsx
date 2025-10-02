@@ -65,6 +65,7 @@ function CatalogoVenta() {
             item={item}
             showImage={true}
             onImageClick={handleImageClick}
+            viewType="Venta"
             />
           ))}
         </div>
